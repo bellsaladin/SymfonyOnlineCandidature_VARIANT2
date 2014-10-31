@@ -269,37 +269,37 @@
   										<button type="button" id="btnRemoveLastFiliere" class="btn btn-danger btn-xs">Supprimer la dernière filière</button>
 									</div>
 									{% endif %}
-
-									<div class="row">
-								    	<div class="col-xs-12 col-md-6 col-lg-6">
-										    <div class="form-group">
-										        <label>Module_1 {edit libelle using id }</label>
-										        <input type="text" id="txt_note_M1" name="{{ form.noteM1.vars.full_name }}" placeholder="ex : 13,50" class="form-control input-sm"/>	
-									        </div>
+									<div id="container_notes_matieres" style="display:none">
+										<div class="row">
+									    	<div class="col-xs-12 col-md-6 col-lg-6">
+											    <div class="form-group">
+											        <label id="label_matiere_1">Module_1 {edit libelle using id }</label>
+											        <input type="text" id="txt_note_M1" name="{{ form.noteM1.vars.full_name }}" placeholder="ex : 13,50" class="form-control input-sm"/>	
+										        </div>
+											</div>
+											<div class="col-xs-12 col-md-6 col-lg-6">
+												<div class="form-group">
+											        <label id="label_matiere_2">Module_2 {edit libelle using id }</label>
+											        <input type="text" id="txt_note_M2" name="{{ form.noteM2.vars.full_name }}" placeholder="ex : 11,00" class="form-control input-sm"/>
+											    </div>
+											</div>										
 										</div>
-										<div class="col-xs-12 col-md-6 col-lg-6">
-											<div class="form-group">
-										        <label>Module_2 {edit libelle using id }</label>
-										        <input type="text" id="txt_note_M2" name="{{ form.noteM2.vars.full_name }}" placeholder="ex : 11,00" class="form-control input-sm"/>
-										    </div>
-										</div>										
-									</div>
 
-									<div class="row">
-								    	<div class="col-xs-12 col-md-6 col-lg-6">
-										    <div class="form-group">
-										        <label>Module_3 {edit libelle using id }</label>
-										        <input type="text" id="txt_note_M3" name="{{ form.noteM3.vars.full_name }}" placeholder="ex : 13,50" class="form-control input-sm"/>	
-									        </div>
+										<div class="row">
+									    	<div class="col-xs-12 col-md-6 col-lg-6">
+											    <div class="form-group">
+											        <label id="label_matiere_3">Module_3 {edit libelle using id }</label>
+											        <input type="text" id="txt_note_M3" name="{{ form.noteM3.vars.full_name }}" placeholder="ex : 13,50" class="form-control input-sm"/>	
+										        </div>
+											</div>
+											<div class="col-xs-12 col-md-6 col-lg-6">
+												<div class="form-group">
+											        <label id="label_matiere_4">Module_4 {edit libelle using id }</label>
+											        <input type="text" id="txt_note_M4" name="{{ form.noteM4.vars.full_name }}" placeholder="ex : 11,00" class="form-control input-sm"/>
+											    </div>
+											</div>										
 										</div>
-										<div class="col-xs-12 col-md-6 col-lg-6">
-											<div class="form-group">
-										        <label>Module_4 {edit libelle using id }</label>
-										        <input type="text" id="txt_note_M4" name="{{ form.noteM4.vars.full_name }}" placeholder="ex : 11,00" class="form-control input-sm"/>
-										    </div>
-										</div>										
 									</div>
-
 								</div>
 							</div>
 					    </div>
@@ -439,6 +439,10 @@
   		$( "#txt_note_S5" ).rules( "add", {required: true, range:[10, 20]} );
   		$( "#txt_note_S6" ).rules( "add", {required: true, range:[10, 20]} );	
 		
+		$( "#txt_note_M1" ).rules( "add", {required: true, range:[10, 20]} );
+  		$( "#txt_note_M2" ).rules( "add", {required: true, range:[10, 20]} );
+  		$( "#txt_note_M3" ).rules( "add", {required: true, range:[10, 20]} );
+  		$( "#txt_note_M4" ).rules( "add", {required: true, range:[10, 20]} );
 		
 		{# --------------- validation JS of field that exists only on a new inscription ---------------  #}
 		
@@ -520,7 +524,10 @@
 		var filiereControlClass = 'filiere_control';
 		var filiereInputClass = 'filiereInput';
 		var filierePropertyValue = '';
+		
 		var filieresArray =[ {% for filiereValue in filieresData %} "{{ filiereValue }}" {% if not loop.last %}, {% endif %} {% endfor %} ];
+		
+		var matieresArray =[ {% for matieresFilieres in matieresData %} [{% for matiereValue in matieresFilieres %} "{{ matiereValue }}" {% if not loop.last %}, {% endif %} {% endfor %} ] {% if not loop.last %}, {% endif %} {% endfor %} ];
 		
 		bindChangeEventToFiliereSelectElements();
 
@@ -558,9 +565,26 @@
 
 			$(('.' + filiereInputClass)).change(function(){					
 				updateFilierePropertyValue();
+				{# -------####------  Reload matières labels -------####---------- #}
+				var selectedIndex = $(this)[0].selectedIndex;
+				if(selectedIndex > 0){
+					reloadMatieresLabels(selectedIndex -1);
+					$('#container_notes_matieres').show()
+				}else{
+					$('#container_notes_matieres').hide();
+				}
+				//alert($(this).val());
+
 			});			  	
 		}
 		
+		function reloadMatieresLabels(selectedIndex){
+			var matieres = matieresArray[selectedIndex];
+			$('#label_matiere_1').html(matieres[0]);
+			$('#label_matiere_2').html(matieres[1]);
+			$('#label_matiere_3').html(matieres[2]);
+			$('#label_matiere_4').html(matieres[3]);
+		}
 
 		function updateFilierePropertyValue(){			
 			filierePropertyValue = '';

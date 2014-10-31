@@ -62,6 +62,30 @@ class ArrayData
 		return $data[$container->getParameter('faculte_code')];
     }
 
+    public static function getMatieresData()
+    {
+    	$matieres_filiere1 =array(
+			'Mathématiques ',
+			'Ingénierie',
+			'Chimie organique',
+			'Sciences des matériaux'						
+		);
+		$matieres_filiere2 =array(
+			'Module 1',
+			'Module 2',
+			'Module 3',
+			'Module 4'
+		);
+		$matieres_filiere3 =array(
+			'Module 1 - Filère 3',
+			'Module 2 - Filère 3',
+			'Module 3 - Filère 3',
+			'Module 4 - Filère 3',			
+		);
+		$data = array($matieres_filiere1, $matieres_filiere2, $matieres_filiere3);
+		return $data;
+	}
+
     public static function getEtablissementsData($kernel)
     {
     	$rootDir = $kernel->getRootDir();
