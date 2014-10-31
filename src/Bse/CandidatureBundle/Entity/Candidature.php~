@@ -183,9 +183,37 @@ class Candidature
     private $noteS6;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="note_m1", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $noteM1;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="note_m2", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $noteM2;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="note_m3", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $noteM3;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="note_m4", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $noteM4;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="filiere", type="string", length=150, nullable=true)
+     * @ORM\Column(name="filiere", type="text", nullable=true)
      */
     private $filiere;
 

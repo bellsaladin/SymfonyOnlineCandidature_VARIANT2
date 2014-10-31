@@ -156,10 +156,38 @@ Candidature:
             scale: 0
             comment: ''
             column: note_s6
-        filiere:
-            type: string
+        noteM1:
+            type: float
             nullable: true
-            length: 150
+            precision: 10
+            scale: 0
+            comment: ''
+            column: note_m1
+        noteM2:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            comment: ''
+            column: note_m2
+        noteM3:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            comment: ''
+            column: note_m3
+        noteM4:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            comment: ''
+            column: note_m4
+        filiere:
+            type: text
+            nullable: true
+            length: null
             fixed: false
             comment: ''
         anneeInscription:

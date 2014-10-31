@@ -41,6 +41,10 @@ class CandidatureType extends AbstractType
             ->add('noteS4')
             ->add('noteS5')
             ->add('noteS6')
+            ->add('noteM1')
+            ->add('noteM2')
+            ->add('noteM3')
+            ->add('noteM4')
             ->add('filiere') 
             ->add('motDePasse')           
         ;

@@ -262,13 +262,44 @@
 										        </select>
 										    </div>
 								        </div>					        			    
-								    </div>	
+								    </div>									    
 								    {% if faculte_enableCandidatureToMultipleFilieres %}
 								    <div>
   										<button type="button" id="btnAddFiliere" class="btn btn-info btn-xs">Ajouter une autre filière</button>
   										<button type="button" id="btnRemoveLastFiliere" class="btn btn-danger btn-xs">Supprimer la dernière filière</button>
 									</div>
 									{% endif %}
+
+									<div class="row">
+								    	<div class="col-xs-12 col-md-6 col-lg-6">
+										    <div class="form-group">
+										        <label>Module_1 {edit libelle using id }</label>
+										        <input type="text" id="txt_note_M1" name="{{ form.noteM1.vars.full_name }}" placeholder="ex : 13,50" class="form-control input-sm"/>	
+									        </div>
+										</div>
+										<div class="col-xs-12 col-md-6 col-lg-6">
+											<div class="form-group">
+										        <label>Module_2 {edit libelle using id }</label>
+										        <input type="text" id="txt_note_M2" name="{{ form.noteM2.vars.full_name }}" placeholder="ex : 11,00" class="form-control input-sm"/>
+										    </div>
+										</div>										
+									</div>
+
+									<div class="row">
+								    	<div class="col-xs-12 col-md-6 col-lg-6">
+										    <div class="form-group">
+										        <label>Module_3 {edit libelle using id }</label>
+										        <input type="text" id="txt_note_M3" name="{{ form.noteM3.vars.full_name }}" placeholder="ex : 13,50" class="form-control input-sm"/>	
+									        </div>
+										</div>
+										<div class="col-xs-12 col-md-6 col-lg-6">
+											<div class="form-group">
+										        <label>Module_4 {edit libelle using id }</label>
+										        <input type="text" id="txt_note_M4" name="{{ form.noteM4.vars.full_name }}" placeholder="ex : 11,00" class="form-control input-sm"/>
+										    </div>
+										</div>										
+									</div>
+
 								</div>
 							</div>
 					    </div>

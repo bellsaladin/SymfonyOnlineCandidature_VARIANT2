@@ -183,6 +183,34 @@ class Candidature
     private $noteS6;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="note_m1", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $noteM1;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="note_m2", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $noteM2;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="note_m3", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $noteM3;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="note_m4", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $noteM4;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="filiere", type="text", nullable=true)
@@ -745,6 +773,98 @@ class Candidature
     }
 
     /**
+     * Set noteM1
+     *
+     * @param float $noteM1
+     * @return Candidature
+     */
+    public function setNoteM1($noteM1)
+    {
+        $this->noteM1 = $noteM1;
+
+        return $this;
+    }
+
+    /**
+     * Get noteM1
+     *
+     * @return float 
+     */
+    public function getNoteM1()
+    {
+        return $this->noteM1;
+    }
+
+    /**
+     * Set noteM2
+     *
+     * @param float $noteM2
+     * @return Candidature
+     */
+    public function setNoteM2($noteM2)
+    {
+        $this->noteM2 = $noteM2;
+
+        return $this;
+    }
+
+    /**
+     * Get noteM2
+     *
+     * @return float 
+     */
+    public function getNoteM2()
+    {
+        return $this->noteM2;
+    }
+
+    /**
+     * Set noteM3
+     *
+     * @param float $noteM3
+     * @return Candidature
+     */
+    public function setNoteM3($noteM3)
+    {
+        $this->noteM3 = $noteM3;
+
+        return $this;
+    }
+
+    /**
+     * Get noteM3
+     *
+     * @return float 
+     */
+    public function getNoteM3()
+    {
+        return $this->noteM3;
+    }
+
+    /**
+     * Set noteM4
+     *
+     * @param float $noteM4
+     * @return Candidature
+     */
+    public function setNoteM4($noteM4)
+    {
+        $this->noteM4 = $noteM4;
+
+        return $this;
+    }
+
+    /**
+     * Get noteM4
+     *
+     * @return float 
+     */
+    public function getNoteM4()
+    {
+        return $this->noteM4;
+    }
+
+    /**
      * Set filiere
      *
      * @param string $filiere
@@ -813,7 +933,7 @@ class Candidature
         return $this->fosuserId;
     }
 
-    /**
+     /**
      * ####################################################################################
      * ############################        CUSTOM CODE        #############################
      * ####################################################################################
