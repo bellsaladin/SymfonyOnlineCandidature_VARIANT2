@@ -73,8 +73,7 @@ class ArrayData
 		$matieres_filiere2 =array(
 			'Module 1',
 			'Module 2',
-			'Module 3',
-			'Module 4'
+			'Module 3'
 		);
 		$matieres_filiere3 =array(
 			'Module 1 - Filère 3',

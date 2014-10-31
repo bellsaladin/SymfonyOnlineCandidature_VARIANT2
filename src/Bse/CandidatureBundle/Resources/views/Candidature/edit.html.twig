@@ -551,8 +551,16 @@
 			var matieres = matieresArray[selectedIndex];
 			$('#label_matiere_1').html(matieres[0]);
 			$('#label_matiere_2').html(matieres[1]);
-			$('#label_matiere_3').html(matieres[2]);
-			$('#label_matiere_4').html(matieres[3]);
+			$('#label_matiere_3').html(matieres[2]);			
+			if(matieres.length > 3 ){
+				$('#label_matiere_4').html(matieres[3]);
+				$('#label_matiere_4').show();
+				$('#txt_note_M4').show();
+			}				
+			else{
+				$('#label_matiere_4').hide();
+				$('#txt_note_M4').hide();
+			}
 		}
 
 		function updateFilierePropertyValue(){			
