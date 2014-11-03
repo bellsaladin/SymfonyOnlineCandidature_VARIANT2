@@ -52,10 +52,11 @@ class ArrayData
 			'Géographie et Aménagement'
 		);
 
-		$data_3 = array(
-			'MARKETING ET LOGISTIQUE',
+		$data_3 = array(			
+			'Banque et Assurance',
 			'Management Audit et Contrôle',
-			'BANQUE et ASSURANCE'
+			'Logistique et Marketing : Logistique et Supply Chain',
+			'Logistique et Marketing : Marketing et Distribution'
 		);
 
 		$data = array('FS'=>$data_1, 'FL' => $data_2, 'FD' => $data_3);
@@ -65,23 +66,27 @@ class ArrayData
     public static function getMatieresData()
     {
     	$matieres_filiere1 =array(
-			'Mathématiques ',
-			'Ingénierie',
-			'Chimie organique',
-			'Sciences des matériaux'						
+			'Analyse et Gestion Financière',
+			'Mathématique Financière',
+			'Fiscalité',
+			'Gestion de portefeuille'
 		);
 		$matieres_filiere2 =array(
-			'Module 1',
-			'Module 2',
-			'Module 3'
+			'Comptabilité Générale',
+			'Management générale',
+			'Analyse financière'
 		);
 		$matieres_filiere3 =array(
-			'Module 1 - Filère 3',
-			'Module 2 - Filère 3',
-			'Module 3 - Filère 3',
-			'Module 4 - Filère 3',			
+			'Management générale',
+			'Théorie des organisations',
+			'Introduction au Marketing'			
 		);
-		$data = array($matieres_filiere1, $matieres_filiere2, $matieres_filiere3);
+		$matieres_filiere4 =array(
+			'Management générale',
+			'Théorie des organisations',
+			'Introduction au Marketing'			
+		);
+		$data = array($matieres_filiere1, $matieres_filiere2, $matieres_filiere3,$matieres_filiere4);
 		return $data;
 	}
 
