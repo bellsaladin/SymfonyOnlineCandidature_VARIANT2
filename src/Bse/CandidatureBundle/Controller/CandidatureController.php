@@ -291,10 +291,22 @@ class CandidatureController extends Controller
             return $this->redirect($this->generateUrl('bse_candidature_welcome'));
         }
 
+        $filieresChoosed = explode("//", $entity->getFiliere());        
+
         return $this->render('BseCandidatureBundle:Candidature:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'filieresChoosed' => $filieresChoosed,
+            'filieresData' => ArrayData::getFilieresData($this->container),
+            'matieresData' => ArrayData::getMatieresData(),
+            'paysData' => ArrayData::getPaysData($this->get('kernel')),
+            'villesData' => ArrayData::getVillesData($this->get('kernel')),
+            'mentionsData' => ArrayData::getMentionsData(),
+            'etablissementsData' => ArrayData::getEtablissementsData($this->get('kernel')),
+            'typesDiplomeData' => ArrayData::getTypesDiplomeData(),
+            'intitulesDiplomeData' => ArrayData::getIntitulesDiplomeData($this->get('kernel')),
+            'facultesData' => ArrayData::getFacultesData()
         ));
     }
     /**
