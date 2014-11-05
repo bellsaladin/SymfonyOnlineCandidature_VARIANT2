@@ -47,7 +47,7 @@ class ArrayData
 			'الاختلاف في العلوم الشرعية',
 			'التواصل وتحليل الخطاب',
 			'سوسيولوجبا التنمية المحلية',
-			'Teaching English As A Foreign Language (TEFL)',
+			// 'Teaching English As A Foreign Language (TEFL)',
 			'Master in Culture and linguistics',
 			'Géographie et Aménagement'
 		);
