@@ -141,6 +141,13 @@ class Candidature
     private $anneeObtentionBac;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="systeme", type="string", length=10, nullable=true)
+     */
+    private $systeme;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="note_s1", type="float", precision=10, scale=0, nullable=true)
@@ -209,6 +216,20 @@ class Candidature
      * @ORM\Column(name="note_m4", type="float", precision=10, scale=0, nullable=true)
      */
     private $noteM4;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="note_m5", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $noteM5;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="note_m6", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $noteM6;
 
     /**
      * @var string
@@ -635,6 +656,29 @@ class Candidature
     }
 
     /**
+     * Set systeme
+     *
+     * @param string $systeme
+     * @return Candidature
+     */
+    public function setSysteme($systeme)
+    {
+        $this->systeme = $systeme;
+
+        return $this;
+    }
+
+    /**
+     * Get systeme
+     *
+     * @return string 
+     */
+    public function getSysteme()
+    {
+        return $this->systeme;
+    }
+
+    /**
      * Set noteS1
      *
      * @param float $noteS1
@@ -850,6 +894,52 @@ class Candidature
     public function setNoteM4($noteM4)
     {
         $this->noteM4 = $noteM4;
+
+        return $this;
+    }
+
+    /**
+     * Get noteM5
+     *
+     * @return float 
+     */
+    public function getNoteM5()
+    {
+        return $this->noteM5;
+    }
+
+    /**
+     * Set noteM5
+     *
+     * @param float $noteM5
+     * @return Candidature
+     */
+    public function setNoteM5($noteM5)
+    {
+        $this->noteM5 = $noteM5;
+
+        return $this;
+    }
+
+    /**
+     * Get noteM6
+     *
+     * @return float 
+     */
+    public function getNoteM6()
+    {
+        return $this->noteM6;
+    }
+
+    /**
+     * Set noteM6
+     *
+     * @param float $noteM6
+     * @return Candidature
+     */
+    public function setNoteM6($noteM6)
+    {
+        $this->noteM6 = $noteM6;
 
         return $this;
     }

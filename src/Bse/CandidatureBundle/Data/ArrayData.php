@@ -66,25 +66,32 @@ class ArrayData
     public static function getMatieresData()
     {
     	$matieres_filiere1 =array(
-			'Analyse et Gestion Financière',
+			'Analyse Financière (S4)',
 			'Mathématique Financière',
-			'Fiscalité',
-			'Gestion de portefeuille'
+			'Fiscalité (S5)',
+			'Gestion de portefeuille',
+			'Gestion Financière (S5)',
+			'Fiscalité (S6)',
+
 		);
 		$matieres_filiere2 =array(
-			'Comptabilité Générale',
-			'Management générale',
-			'Analyse financière'
+			'Comptabilité Générale (S1)',
+			'Management général (S1)',
+			'Analyse financière',
+			'Comptabilité Générale (S2)',
+			'Management général (S2)',
 		);
 		$matieres_filiere3 =array(
-			'Management générale',
+			'Management général (S1)',
 			'Théorie des organisations',
-			'Introduction au Marketing'			
+			'Introduction au Marketing',
+			'Management général (S2)',
 		);
 		$matieres_filiere4 =array(
-			'Management générale',
+			'Management général (S1)',
 			'Théorie des organisations',
-			'Introduction au Marketing'			
+			'Introduction au Marketing',
+			'Management général (S2)',
 		);
 		$data = array($matieres_filiere1, $matieres_filiere2, $matieres_filiere3,$matieres_filiere4);
 		return $data;
@@ -149,6 +156,16 @@ class ArrayData
 		return $data;
 
     }
+
+    public static function getSystemesData()
+    {
+    	$data =array(
+			'LMD',
+			'Ancien'
+		);
+		return $data;
+    }
+
 
     public static function getMentionsData()
     {

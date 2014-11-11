@@ -232,6 +232,19 @@
 									        </select>						        			    
 									    </div>
 									</div>
+									<div class="col-xs-4">
+										<div class="form-group">
+									        <label>Système</label>	
+									        <p></p>
+									        <select id="{{ edit_form.systeme.vars.id }}" name="{{ edit_form.systeme.vars.full_name }}" class="form-control input-sm">
+									        	{% for systemeValue in systemesData %}
+									        	<option value="{{ systemeValue }}" {% if  systemeValue == entity.systeme %} selected {% endif %} >
+									        		{{ systemeValue }}
+									        	</option>
+									        	{% endfor %}
+									        </select>						        			    
+									    </div>
+									</div>
 									{#<div class="col-xs-4">												    	
 						    			<div class="form-group" style="margin: 36px 0 0 0;">
 									        <label>Diplôme étranger ? &nbsp;&nbsp;<span>{{ form_widget(edit_form.diplomeEtranger) }}</span></label>
@@ -242,19 +255,19 @@
 								<div class="row">
 							    	<div class="col-xs-12 col-md-4 col-lg-4">
 									    <div class="form-group">
-									        <label>Semestre 1</label>									        
+									        <label class="noteLibelle">Semestre 1</label>
 									        <input type="text" id="txt_note_S1" name="{{ edit_form.noteS1.vars.full_name }}" value="{{ entity.noteS1|number_format(2, ',', '.') }}" placeholder="ex : 13,50" class="form-control input-sm"/>	
 								        </div>
 									</div>
 									<div class="col-xs-12 col-md-4 col-lg-4">
 										<div class="form-group">
-									        <label>Semestre 2</label>									        
+									        <label class="noteLibelle">Semestre 2</label>		        
 									        <input type="text" id="txt_note_S2" name="{{ edit_form.noteS2.vars.full_name }}" value="{{ entity.noteS2|number_format(2, ',', '.') }}" placeholder="ex : 11,00" class="form-control input-sm"/>	
 									    </div>
 									</div>
 									<div class="col-xs-12 col-md-4 col-lg-4">
 										<div class="form-group">
-									        <label>Semestre 3</label>
+									        <label class="noteLibelle">Semestre 3</label>		        
 									        <input type="text" id="txt_note_S3" name="{{ edit_form.noteS3.vars.full_name }}" value="{{ entity.noteS3|number_format(2, ',', '.')  }}" placeholder="ex : 14,00" class="form-control input-sm"/>	
 								        </div>	    
 									</div>
@@ -262,19 +275,19 @@
 								<div class="row">
 							    	<div class="col-xs-12 col-md-4 col-lg-4">
 								        <div class="form-group">
-									        <label>Semestre 4</label>									        
+									        <label class="noteLibelle">Semestre 4</label>		        
 									        <input type="text" id="txt_note_S4" name="{{ edit_form.noteS4.vars.full_name }}" value="{{ entity.noteS4|number_format(2, ',', '.') }}" placeholder="ex : 10,00" class="form-control input-sm"/>	
 									    </div>
 									</div>
-									<div class="col-xs-12 col-md-4 col-lg-4">
+									<div id="div_note_S5" class="col-xs-12 col-md-4 col-lg-4">
 								        <div class="form-group">
 									        <label>Semestre 5</label>									        
 									        <input type="text" id="txt_note_S5" name="{{ edit_form.noteS5.vars.full_name }}" value="{{ entity.noteS5|number_format(2, ',', '.') }}" placeholder="ex : 14,00" class="form-control input-sm"/>	
 								        </div>		    
 									</div>
-									<div class="col-xs-12 col-md-4 col-lg-4">
+									<div id="div_note_S6" class="col-xs-12 col-md-4 col-lg-4">
 								        <div class="form-group">
-									        <label>Semestre 6</label>									        
+									        <label>Semestre 6</label>
 									        <input type="text" id="txt_note_S6" name="{{ edit_form.noteS6.vars.full_name }}" value="{{ entity.noteS6|number_format(2, ',', '.') }}" placeholder="ex : 10,00" class="form-control input-sm"/>	
 									    </div>		    
 									</div>
@@ -343,6 +356,22 @@
 											    </div>
 											</div>										
 										</div>
+
+										<div class="row">
+									    	<div class="col-xs-12 col-md-6 col-lg-6">
+											    <div class="form-group">
+											        <label id="label_matiere_5">Module_5 {edit libelle using id }</label>
+											        <input type="text" id="txt_note_M5" name="{{ edit_form.noteM5.vars.full_name }}" placeholder="ex : 13,50" value="{{ entity.noteM5|number_format(2, ',', '.') }}" class="form-control input-sm"/>	
+										        </div>
+											</div>
+											<div class="col-xs-12 col-md-6 col-lg-6">
+												<div class="form-group">
+											        <label id="label_matiere_6">Module_6 {edit libelle using id }</label>
+											        <input type="text" id="txt_note_M6" name="{{ edit_form.noteM6.vars.full_name }}" placeholder="ex : 11,00" value="{{ entity.noteM6|number_format(2, ',', '.') }}" class="form-control input-sm"/>
+											    </div>
+											</div>										
+										</div>
+
 									</div>								
 								</div>
 							</div>
@@ -470,6 +499,8 @@
   		$( "#txt_note_M2" ).rules( "add", {required: true, range:[5, 20]} );
   		$( "#txt_note_M3" ).rules( "add", {required: true, range:[5, 20]} );
   		$( "#txt_note_M4" ).rules( "add", {required: true, range:[5, 20]} );
+  		$( "#txt_note_M5" ).rules( "add", {required: true, range:[5, 20]} );
+  		$( "#txt_note_M6" ).rules( "add", {required: true, range:[5, 20]} );
 
 
   		{% if entity.cne == 'PAS DE CNE' %}
@@ -504,6 +535,50 @@
 
 	    $('#ville').change(function () {				        
 	        $('#{{ edit_form.ville.vars.id }}').val($('#ville').val());	        
+	    });
+
+	    {# --------------- OnChange SYSTEME D obtention de licence ---------------  #}
+
+	    {% if entity.systeme != 'LMD' %}
+	    	{# ------ OnLoad hide noteS5 and noteS6 if the choosed systeme is LMD ------ #}
+	    	$('#div_note_S5').hide();
+	        $('#div_note_S6').hide();
+	        {# ------ set values so that the validation would pass ------ #}
+	        $('#txt_note_S5').val('10');
+	        $('#txt_note_S6').val('10');
+	        {# ------ update libellées ----- #}
+	        var num = 1;
+        	$( ".noteLibelle" ).each(function( index ) {
+        		var exposantTxt = (num == 1)?'ère':'ème';
+				$( this ).text(num + exposantTxt + ' année :');
+				num++;
+			});
+	    {% endif %}
+
+  		$('#{{ edit_form.systeme.vars.id }}').change(function () {  			
+	        if($(this).val() =='LMD'){
+	        	$('#div_note_S5').show();
+	        	$('#div_note_S6').show();
+	        	$('#txt_note_S5').val('');
+	        	$('#txt_note_S6').val('');
+	        	var num = 1;
+	        	$( ".noteLibelle" ).each(function( index ) {
+  					$( this ).text('Moyenne ' + num + ':');
+  					num++;
+				});
+	        }else{
+	        	$('#div_note_S5').hide();
+	        	$('#div_note_S6').hide();
+	        	{# &&&&&& --------- give 10 as value for S5 and S6 semestre to skip validaiton ------ &&&&&& #}
+	        	$('#txt_note_S5').val('10');
+	        	$('#txt_note_S6').val('10');
+	        	var num = 1;
+	        	$( ".noteLibelle" ).each(function( index ) {
+	        		var exposantTxt = (num == 1)?'ère':'ème';
+  					$( this ).text(num + exposantTxt + ' année :');
+  					num++;
+				});
+	        }	        
 	    });
 
   		{# --------------- OnChange TypeDiplome & IntituleDiplome ---------------  #}
@@ -611,19 +686,22 @@
 		}
 
 		function reloadMatieresLabels(selectedIndex){
-			var matieres = matieresArray[selectedIndex];
-			$('#label_matiere_1').html(matieres[0]);
-			$('#label_matiere_2').html(matieres[1]);
-			$('#label_matiere_3').html(matieres[2]);			
-			if(matieres.length > 3 ){
-				$('#label_matiere_4').html(matieres[3]);
-				$('#label_matiere_4').show();
-				$('#txt_note_M4').show();
-			}				
-			else{
-				$('#label_matiere_4').hide();
-				$('#txt_note_M4').hide();
+			var matieres = matieresArray[selectedIndex];			
+
+			for(i = 0 ; i < matieres.length ; i++){
+				$(('#label_matiere_' + (i+1) )).html(matieres[i]);
+				$(('#label_matiere_' + (i+1) )).show();
+				$(('#txt_note_M' + (i+1) )).show();
+				//alert(('#label_matiere_' + i ));
 			}
+
+			for(i = matieres.length  ; i <= 6 ; i++){
+				$(('#label_matiere_' + (i+1) )).hide();
+				$(('#txt_note_M' + (i+1) )).hide();
+				$(('#txt_note_M' + (i+1) )).val('');
+				//alert(('#label_matiere_' + i ));
+			}
+			
 		}
 
 		function updateFilierePropertyValue(){			
